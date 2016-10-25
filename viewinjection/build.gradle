@@ -1,0 +1,44 @@
+apply plugin: 'com.android.library'
+apply plugin: 'com.novoda.bintray-release'
+
+android {
+    compileSdkVersion 24
+    buildToolsVersion "24.0.2"
+
+    defaultConfig {
+        minSdkVersion 19
+        targetSdkVersion 24
+        versionCode 1
+        versionName "1.0"
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+}
+
+tasks.withType(Javadoc) {
+    options.addStringOption('Xdoclint:none', '-quiet')
+    options.addStringOption('encoding', 'UTF-8')
+}
+
+dependencies {
+    compile fileTree(dir: 'libs', include: ['*.jar'])
+    testCompile 'junit:junit:4.12'
+    compile 'com.android.support:appcompat-v7:24.2.1'
+}
+
+
+
+//添加
+publish {
+    userOrg = 'jinzi'//bintray.com用户名
+    groupId = 'com.xiaojinzi'//jcenter上的路径
+    artifactId = 'viewInject'//项目名称
+    publishVersion = '1.0.0'//版本号
+    desc = 'view Injection tools'//描述，不重要
+    website = 'https://github.com/xiaojinzi123/ximageLib'//网站，不重要；尽量模拟github上的地址，例如我这样的；当然你有地址最好了
+    //gradlew clean build bintrayUpload -PbintrayUser=xiaojinzi -PbintrayKey=5ab0963f857b6a6a70296886282ef2f3a67aadd5 -PdryRun=false
+}
