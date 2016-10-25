@@ -37,8 +37,8 @@ publish {
     userOrg = 'jinzi'//bintray.com用户名
     groupId = 'com.xiaojinzi'//jcenter上的路径
     artifactId = 'viewInject'//项目名称
-    publishVersion = '1.0.0'//版本号
-    desc = 'view Injection tools'//描述，不重要
+    publishVersion = '1.0.1'//版本号
+    desc = 'fix a small bug'//描述，不重要
     website = 'https://github.com/xiaojinzi123/ximageLib'//网站，不重要；尽量模拟github上的地址，例如我这样的；当然你有地址最好了
     //gradlew clean build bintrayUpload -PbintrayUser=xiaojinzi -PbintrayKey=5ab0963f857b6a6a70296886282ef2f3a67aadd5 -PdryRun=false
 }

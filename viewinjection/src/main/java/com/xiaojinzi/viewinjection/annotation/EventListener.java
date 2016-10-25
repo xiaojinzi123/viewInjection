@@ -4,6 +4,7 @@ import android.view.View;
 
 import com.xiaojinzi.viewinjection.log.L;
 
+import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 
 
@@ -69,13 +70,21 @@ public class EventListener implements View.OnClickListener, View.OnLongClickList
     @Override
     public void onClick(View v) {
         Method method = null;
+
+
         try {
             method = receiver.getClass().getMethod(clickMethodName);
             if (method != null) {
                 // 调用该方法
                 method.invoke(receiver);
             }
-        } catch (Exception e) {
+        } catch (NoSuchMethodException e) {
+            if (isLog)
+                L.s(tag, "寻找无参数列表的方法:" + clickMethodName + "失败");
+        } catch (InvocationTargetException e) {
+            if (isLog)
+                L.s(tag, "寻找无参数列表的方法:" + clickMethodName + "失败");
+        } catch (IllegalAccessException e) {
             if (isLog)
                 L.s(tag, "寻找无参数列表的方法:" + clickMethodName + "失败");
         }
@@ -86,7 +95,13 @@ public class EventListener implements View.OnClickListener, View.OnLongClickList
                     method.invoke(receiver, v);
                 }
             }
-        } catch (Exception e) {
+        } catch (NoSuchMethodException e) {
+            if (isLog)
+                L.s(tag, "寻找带有View类型参数的方法:" + clickMethodName + "失败");
+        } catch (InvocationTargetException e) {
+            if (isLog)
+                L.s(tag, "寻找带有View类型参数的方法:" + clickMethodName + "失败");
+        } catch (IllegalAccessException e) {
             if (isLog)
                 L.s(tag, "寻找带有View类型参数的方法:" + clickMethodName + "失败");
         }
@@ -101,7 +116,13 @@ public class EventListener implements View.OnClickListener, View.OnLongClickList
                 // 调用该方法
                 method.invoke(receiver);
             }
-        } catch (Exception e) {
+        } catch (NoSuchMethodException e) {
+            if (isLog)
+                L.s(tag, "寻找无参数列表的方法:" + longClickMethodName + "失败");
+        } catch (InvocationTargetException e) {
+            if (isLog)
+                L.s(tag, "寻找无参数列表的方法:" + longClickMethodName + "失败");
+        } catch (IllegalAccessException e) {
             if (isLog)
                 L.s(tag, "寻找无参数列表的方法:" + longClickMethodName + "失败");
         }
@@ -112,7 +133,13 @@ public class EventListener implements View.OnClickListener, View.OnLongClickList
                     method.invoke(receiver, v);
                 }
             }
-        } catch (Exception e) {
+        } catch (NoSuchMethodException e) {
+            if (isLog)
+                L.s(tag, "寻找带有View类型参数的方法:" + longClickMethodName + "失败");
+        } catch (InvocationTargetException e) {
+            if (isLog)
+                L.s(tag, "寻找带有View类型参数的方法:" + longClickMethodName + "失败");
+        } catch (IllegalAccessException e) {
             if (isLog)
                 L.s(tag, "寻找带有View类型参数的方法:" + longClickMethodName + "失败");
         }

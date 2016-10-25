@@ -9,6 +9,7 @@ import com.xiaojinzi.viewinjection.annotation.Injection;
 import com.xiaojinzi.viewinjection.annotation.ViewInjectionUtil;
 import com.xiaojinzi.viewinjection.log.L;
 
+@Injection(R.layout.act_main)
 public class MainAct extends AppCompatActivity {
 
     @Injection(value = R.id.tv, click = "clickView")
@@ -17,7 +18,6 @@ public class MainAct extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.act_main);
 
         Long startTime = System.currentTimeMillis();
 
