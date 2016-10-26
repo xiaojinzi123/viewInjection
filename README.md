@@ -117,3 +117,8 @@ public class MainAct extends AppCompatActivity {
 ---------
 
 ![这里写图片描述](http://img.blog.csdn.net/20161026115854800)
+
+如果你想了解原理,请移步
+
+[小金子注解框架详解](http://blog.csdn.net/u011692041/article/details/51396232)
+
